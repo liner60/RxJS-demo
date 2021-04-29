@@ -16,13 +16,13 @@ export class TestCaseComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.case1();
-    // this.case2();
+    // this.case1();
+    //this.case2();
     // this.case3();
     // this.case4();
     // this.case5();
     // this.case6();
-    // this.case7();
+     this.case7();
   }
 
   // 冷Observable
@@ -72,7 +72,7 @@ export class TestCaseComponent implements OnInit {
 
   // 热Observable
   case3(): void {
-    const source$ = (interval(100)
+    const source$ = (timer(0, 100)
       .pipe(
         take(3),
         publish()
@@ -84,17 +84,11 @@ export class TestCaseComponent implements OnInit {
       source$.subscribe(res => {
         console.log('observer1:', res);
       });
-
-      setTimeout(() => {
-        source$.subscribe(res => {
-          console.log('observer2:', res);
-        });
-      }, 200);
     }, 100);
 
     setTimeout(() => {
       source$.subscribe(res => {
-        console.log('observer3:', res);
+        console.log('observer2:', res);
       });
     }, 1000);
   }
@@ -117,26 +111,8 @@ export class TestCaseComponent implements OnInit {
     subject.next(3);
   }
 
-  // BehaviorSubject
-  case5(): void {
-    const subject = new BehaviorSubject(-1);
-
-    subject.subscribe(res => {
-      console.log('observer1:', res);
-    });
-
-    subject.next(1);
-    subject.next(2);
-
-    subject.subscribe(res => {
-      console.log('observer2:', res);
-    });
-
-    subject.next(3);
-  }
-
   // ReplaySubject
-  case6(): void {
+  case5(): void {
     const subject = new ReplaySubject(2);
 
     subject.subscribe(res => {
@@ -152,6 +128,24 @@ export class TestCaseComponent implements OnInit {
     });
 
     subject.next(4);
+  }
+
+  // BehaviorSubject
+  case6(): void {
+    const subject = new BehaviorSubject(-1);
+
+    subject.subscribe(res => {
+      console.log('observer1:', res);
+    });
+
+    subject.next(1);
+    subject.next(2);
+
+    subject.subscribe(res => {
+      console.log('observer2:', res);
+    });
+
+    subject.next(3);
   }
 
   // AsyncSubject

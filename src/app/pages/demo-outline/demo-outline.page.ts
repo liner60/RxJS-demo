@@ -34,7 +34,6 @@ export class DemoOutlineComponent implements OnInit {
   private initProjectSetting(): void {
     this.projectSettingService.projectSettingData
       .subscribe(data => {
-        console.log(data);
         this.projectSetting = data;
       });
   }
