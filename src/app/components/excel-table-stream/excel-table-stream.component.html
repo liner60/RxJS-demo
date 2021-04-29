@@ -1,0 +1,39 @@
+<h2>响应式编程-Excel表格</h2>
+<table>
+  <tr>
+    <td>值1</td>
+    <td>
+      <input type="number" #input1 [ngModel]="number1$ | async" (ngModelChange)="number1$.next($event)">
+    </td>
+  </tr>
+  <tr>
+    <td>值2</td>
+    <td>
+      <input type="number" #input2 [ngModel]="number2$ | async" (ngModelChange)="number2$.next($event)">
+    </td>
+  </tr>
+  <tr>
+    <td>值3</td>
+    <td>
+      <input type="number" #input3 [ngModel]="number3$ | async" (ngModelChange)="number3$.next($event)">
+    </td>
+  </tr>
+  <tr>
+    <td>总计</td>
+    <td>
+      <input type="number" [value]="sum$ | async">
+    </td>
+  </tr>
+  <tr>
+    <td>均值</td>
+    <td>
+      <input type="number" [value]="average$ | async">
+    </td>
+  </tr>
+  <tr>
+    <td>操作</td>
+    <td>
+      <button (click)="reset()">清空</button>
+    </td>
+  </tr>
+</table>

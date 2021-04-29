@@ -1,0 +1,27 @@
+<div class="demo-detail-page">
+  <span>系统配置：{{projectSetting?.backstageEnvironmentURL}}</span>
+  <div class="demo-wrapper">
+    <ng-container *ngIf="isExcelDemoShow">
+      <div class="demo-box">
+        <app-excel-table></app-excel-table>
+      </div>
+      <div class="demo-box">
+        <app-excel-table-stream></app-excel-table-stream>
+      </div>
+    </ng-container>
+    <div class="demo-box" *ngIf="isLuckyDemoShow">
+      <app-lucky-number></app-lucky-number>
+    </div>
+  </div>
+  <p *ngIf="historyArr?.length">用ReplaySubject实现Demo查看历史记录：
+    <span *ngFor="let item of historyArr">{{item}}、</span>
+  </p>
+  <p>
+    用BehaviorSubject能拿到传过来的值：
+    <span>{{stateService.demoSelector$ | async}}</span>
+  </p>
+  <p>
+    用Subject拿不到传过来的值：
+    <span>{{stateService.demoSelector2$ | async}}</span>
+  </p>
+</div>

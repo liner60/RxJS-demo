@@ -1,0 +1,10 @@
+{
+  "/seaApi": {
+    "target": "http://synyi-manhattan-sea-api-2440-develop.sy",
+    "secure": false,
+    "pathRewrite": {
+      "^/seaApi": "/api"
+    },
+    "changeOrigin": true
+  }
+}

@@ -1,0 +1,27 @@
+<h2>简单抽奖系统-AsyncSubject</h2>
+<p>当两次所选数字相等时即中奖</p>
+<p>选择您的幸运数字1：{{showNumber1}}</p>
+<p>
+  <button (click)="start1()">开始</button>
+  <button (click)="stop1()">停止</button>
+</p>
+<p>
+  您的幸运数字1是：{{luckyNumber1$ | async}}
+</p>
+
+<p>选择您的幸运数字2：{{showNumber2}}</p>
+<p>
+  <button (click)="start2()">开始</button>
+  <button (click)="stop2()">停止</button>
+</p>
+<p>
+  您的幸运数字2是：{{luckyNumber2$ | async}}
+</p>
+
+<h3>结果：</h3>
+<p *ngIf="(result$ | async) === true">
+  恭喜您，您中奖了！！！
+</p>
+<p *ngIf="(result$ | async) === false">
+  抱歉，您未中奖～
+</p>

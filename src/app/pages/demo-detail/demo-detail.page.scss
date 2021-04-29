@@ -1,0 +1,13 @@
+.demo-detail-page {
+
+  .demo-wrapper {
+    display: flex;
+
+    .demo-box {
+      border: 1px solid #ccc;
+      padding: 5px;
+      margin: 10px;
+      width: 50%;
+    }
+  }
+}

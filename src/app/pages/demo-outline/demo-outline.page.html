@@ -1,0 +1,24 @@
+<div class="demo-outline-page">
+  <h2>RxJS demo outline</h2>
+  <span>系统配置：{{projectSetting?.backstageEnvironmentURL}}</span>
+  <p>请选择您要查看的Demo:</p>
+
+  <p>
+    <input type="radio" id="all" name="demoMethod" value="all" [(ngModel)]="demoMethod">
+    <label for="all">全部</label>
+  </p>
+
+  <p>
+    <input type="radio" id="excel" name="demoMethod" value="excel" [(ngModel)]="demoMethod">
+    <label for="excel">Excel表格</label>
+  </p>
+
+  <p>
+    <input type="radio" id="luckyNumber" name="demoMethod" value="luckyNumber" [(ngModel)]="demoMethod">
+    <label for="luckyNumber">幸运数字组合-AsyncSubject</label>
+  </p>
+
+  <button routerLink="/detail" (click)="onSelectDemo()">进入Demo</button>
+
+  <app-test-case></app-test-case>
+</div>
